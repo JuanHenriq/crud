@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    background-color: #386150;
+}
+
+h1 {
+    text-align: center;
+    color: #F4F7F5;
+}
+
+h2 {
+    margin-left: 140px;
+    padding: 10px;
+    color: #F4F7F5;
+}
+
+
+/* Formulário */
+#productForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+#productForm label {
+    margin-top: 10px;
+}
+
+#productForm input {
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#productForm button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#productForm button:hover {
+    background-color: #000000;
+}
+
+/* Tabela */
+#Info {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 30px auto;
+}
+
+#Info th, #Info td {
+    border: 1px solid #F4F7F5;
+    padding: 8px;
+    text-align: center;
+}
+
+#Info th {
+    background-color: #F4F7F5;
+}
+
+/* Opções na tabela */
+#Info button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #4c70af;
+    color: white;
+    border: none;
+}
+
+#Info button:hover {
+    background-color: #000000;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 1000px) {
+
+    h1{
+        font-size: 27px;
+    }
+	
+	h2 {
+        margin: auto;
+        text-align: center;
+		font-size: 18px;
+	}
+
+    #Info{
+        font-size: 12px;
+    }
+}
+
