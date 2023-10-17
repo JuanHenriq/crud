@@ -24,6 +24,7 @@ h2 {
     flex-direction: column;
     max-width: 300px;
     margin: 20px auto;
+    color: #030027;
 }
 
 #productForm label {
