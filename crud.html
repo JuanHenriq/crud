@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento de Produtos</title>
+    <title>CRUD</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-    <h1>Gerenciamento de Produtos</h1>
+    <h1>Carrinho de Produtos</h1>
 
     <form id="productForm">
-        <label for="productCode">Código do Produto:</label>
-        <input type="text" id="productCode" required>
-        <label for="product">Produto:</label>
-        <input type="text" id="product" required>
-        <label for="qty">Quantidade:</label>
-        <input type="number" id="qty" required>
-        <label for="perPrice">Preço por Unidade:</label>
-        <input type="number" id="perPrice" required>
+        <label for="codigo">Código do Produto:</label>
+        <input type="text" id="codigo" required>
+        <label for="produto">Produto:</label>
+        <input type="text" id="produto" required>
+        <label for="qt">Quantidade:</label>
+        <input type="number" id="qt" required>
+        <label for="preco">Preço por Unidade:</label>
+        <input type="number" id="preco" required>
         <button type="button" onclick="onFormSubmit()">Salvar</button>
     </form>
 
     <h2>Lista de Produtos</h2>
 
-    <table id="storeList">
+    <table id="Info">
         <thead>
             <tr>
                 <th>Código do Produto</th>
@@ -51,31 +52,31 @@
         }
 
         function insertNewRecord() {
-            const table = document.getElementById("storeList").getElementsByTagName('tbody')[0];
+            const table = document.getElementById("Info").getElementsByTagName('tbody')[0];
             const newRow = table.insertRow(table.length);
 
-            const productCode = document.getElementById("productCode").value;
-            const product = document.getElementById("product").value;
-            const qty = document.getElementById("qty").value;
-            const perPrice = document.getElementById("perPrice").value;
+            const codigo = document.getElementById("codigo").value;
+            const produto = document.getElementById("produto").value;
+            const qt = document.getElementById("qt").value;
+            const preco = document.getElementById("preco").value;
 
             const cell1 = newRow.insertCell(0);
-            cell1.innerHTML = productCode;
+            cell1.innerHTML = codigo;
             const cell2 = newRow.insertCell(1);
-            cell2.innerHTML = product;
+            cell2.innerHTML = produto;
             const cell3 = newRow.insertCell(2);
-            cell3.innerHTML = qty;
+            cell3.innerHTML = qt;
             const cell4 = newRow.insertCell(3);
-            cell4.innerHTML = perPrice;
+            cell4.innerHTML = preco;
             const cell5 = newRow.insertCell(4);
             cell5.innerHTML = `<button onClick="onEdit(this)">Edit</button> <button onClick="onDelete(this)">Delete</button>`;
         }
 
         function resetForm() {
-            document.getElementById("productCode").value = "";
-            document.getElementById("product").value = "";
-            document.getElementById("qty").value = "";
-            document.getElementById("perPrice").value = "";
+            document.getElementById("codigo").value = "";
+            document.getElementById("produto").value = "";
+            document.getElementById("qt").value = "";
+            document.getElementById("preco").value = "";
 
             selectedRow = null;
         }
@@ -83,10 +84,10 @@
         function onEdit(td) {
             selectedRow = td.parentElement.parentElement;
             const cells = [
-                document.getElementById("productCode"),
-                document.getElementById("product"),
-                document.getElementById("qty"),
-                document.getElementById("perPrice")
+                document.getElementById("codigo"),
+                document.getElementById("produto"),
+                document.getElementById("qt"),
+                document.getElementById("preco")
             ];
 
             for (let i = 0; i < selectedRow.cells.length - 1; i++) {
@@ -96,10 +97,10 @@
 
         function updateRecord() {
             const cells = [
-                document.getElementById("productCode"),
-                document.getElementById("product"),
-                document.getElementById("qty"),
-                document.getElementById("perPrice")
+                document.getElementById("codigo"),
+                document.getElementById("produto"),
+                document.getElementById("qt"),
+                document.getElementById("preco")
             ];
 
             for (let i = 0; i < selectedRow.cells.length - 1; i++) {
@@ -110,14 +111,14 @@
         function onDelete(td) {
             if (confirm('Você deseja excluir este registro?')) {
                 const row = td.parentElement.parentElement;
-                document.getElementById('storeList').deleteRow(row.rowIndex);
+                document.getElementById('Info').deleteRow(row.rowIndex);
                 resetForm();
             }
         }
 
         function validate() {
-            const productCode = document.getElementById("productCode").value;
-            if (productCode === "") {
+            const produto = document.getElementById("codigo").value;
+            if (codigo === "") {
                 alert("O campo Código do Produto não pode estar vazio.");
                 return false;
             }
